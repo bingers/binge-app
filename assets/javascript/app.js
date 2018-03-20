@@ -1,12 +1,28 @@
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyATqoaVNAv5dim_qlP4AAgVe3CMGZLNF9Y",
-    authDomain: "binge-web-app.firebaseapp.com",
-    databaseURL: "https://binge-web-app.firebaseio.com",
-    projectId: "binge-web-app",
-    storageBucket: "",
-    messagingSenderId: "979328161042"
-  };
-  firebase.initializeApp(config);
+// var happy =[];
+// var angry = [];
+// var sad = [];
+// var dessert = something;
+var ageVerification;
+// var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q="+dessert+"&count=5";
 
-  var database = firebase.database();
+$(".submit").on("click", function(){
+var age = $("#ageVerification").val().trim();
+
+if (13<age<18){
+  ageVerification = "&query=pg"
+}
+else if (age < 13){
+  ageVerification = "&query=pg13"
+}
+var queryURL2 = "https://api.themoviedb.org/3/genre/movie/list?api_key=e5b06f17d05f6cfa0548dce0843cbde4&language=en-US"+ageVerification;
+console.log(ageVerification)
+
+$.ajax({
+  url: queryURL2,
+  method: "GET"
+}).then(function (response) {
+
+console.log(response);
+});
+
+});

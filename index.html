@@ -8,16 +8,64 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyATqoaVNAv5dim_qlP4AAgVe3CMGZLNF9Y",
+      authDomain: "binge-web-app.firebaseapp.com",
+      databaseURL: "https://binge-web-app.firebaseio.com",
+      projectId: "binge-web-app",
+      storageBucket: "",
+      messagingSenderId: "979328161042"
+    };
+    firebase.initializeApp(config);
+    </script>   
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
 
 </head>
 
 <body>
 
+    <h1 class="text-center">Welcome to My Awesome App</h1>
+
+    <div id="firebaseui-auth-container"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+              <div class="text-center">
+              <p>Enter Age</p>
+              <input type="number" id="ageVerification">
+              <button class="submit">Submit</button>
+            </div>
+        </div>
+      </div>
+    </div>
 
 
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javscript/app.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
