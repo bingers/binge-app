@@ -8,10 +8,12 @@
     <title>Binge</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
     <script src="themoviedb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
         crossorigin="anonymous"></script>
 
@@ -52,11 +54,30 @@
 
             <p>Choose an emoji!
                 <br>
-                <i class="em em-laughing"></i>
-                <i class="em em-heart_eyes"></i>
-                <i class="em em-alien"></i>
-                <i class="em em-cry"></i>
-                <i class="em em-ghost"></i>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
+                        <i class="em em-laughing"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
+                        <i class="em em-heart_eyes"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                        <i class="em em-alien"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                        <i class="em em-cry"></i>
+                        </i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                        <i class="em em-ghost"></i>
+                        </i>
+                    </label>
+                </div>
 
             </p>
 
@@ -68,14 +89,39 @@
 
             <h1>
                 <i class="fas fa-utensils"></i> Food!</h1>
-            <p>how u feelin dude
-                <br>
-                <i class="em em-laughing"></i>
-                <i class="em em-heart_eyes"></i>
-                <i class="em em-alien"></i>
-                <i class="em em-cry"></i>
-                <i class="em em-ghost"></i>
-            </p>
+            <p>how u feelin dude</p>
+
+            <p> Input Food</p>
+            <input id="food-input" type="text" />
+            <button id="submit" class="btn btn-secondary">Submit Food</button>
+
+            <br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
+                    <i class="em em-laughing"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
+                    <i class="em em-heart_eyes"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-alien"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-cry"></i>
+                    </i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-ghost"></i>
+                    </i>
+                </label>
+            </div>
+            <div id="food-results"></div>
+
             <a class="btn btn-success" href="{% url 'rad_info' %}" role="button">Next</a>
         </div>
 
@@ -90,7 +136,7 @@
 
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-    
+
 </body>
 
 </html>
