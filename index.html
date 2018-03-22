@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
-    <title>binge.</title>
+    <title>Binge</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
   
 
@@ -43,29 +45,147 @@
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
 
+    <script src="themoviedb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+        crossorigin="anonymous"></script>
+
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <div class="jumbotron" style="background-color: #C1E1A6 ; background-image: url(images/movie.jpg); color: black; font-family: 'Indie Flower', cursive;">
+        <h1 class="text-center">
+            <strong> Let's Binge!</strong>
 
-    <h1 class="text-center">Welcome to My Awesome App</h1>
-
-    <div id="firebaseui-auth-container"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-              <div class="text-center">
-              <p>Enter Age</p>
-              <input type="number" id="ageVerification">
-              <button class="submit">Submit</button>
-            </div>
-        </div>
-      </div>
     </div>
 
+    <div id="age">
+        <form>
+            Age:
+            <input type="number" name="age" value="">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br>
 
-    
+    <div class="row">
+
+        <div class="jumbotron text-center col-md-6">
+            <div class="first"></div>
+            <h1>
+                <i class="fas fa-film"></i> Movie!</h1>
+            <p>
+                Movie Name:
+                <input id="movieNameInput" type="text" value="The Dark Knight" /> Year:
+                <input id="movieYearInput" type="text" value="2008" />
+                <button id="searchButton">Search</button>
+                <br />
+            </p>
+            <p id="results"></p>
+
+            <p>Choose an emoji!
+                <br>
+                <div class="btn-toolbar btn-group-toggle" role="toolbar"  data-toggle="buttons">
+                    <div class="btn-group mr-2 mx-auto">
+                            <label class="btn btn-secondary">
+                                <input type="radio" value="28" id="option1" autocomplete="off" class="emoji">
+                                Action
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" value="10749" id="option2" autocomplete="off" class="emoji">
+                                Romance                    
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" value="878" id="option3" autocomplete="off" class="emoji">
+                                Sci Fi
+                        
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" value="99" id="option4" autocomplete="off" class="emoji">
+                                Documentary
+                            </label>
+                    </div>
+
+                    <div class="btn-group mr-2 mx-auto">
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="35" id="option5" autocomplete="off" class="emoji">
+                            Comedy
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="27" id="option6" autocomplete="off" class="emoji">
+                            Horror
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="18" id="option7" autocomplete="off" class="emoji">
+                            Drama                    
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="16" id="option8" autocomplete="off" class="emoji">
+                            Animation      
+                        </label>
+                    </div>
+                </div>
+
+
+            </p>
+
+            <a class="btn btn-danger pull-right">Next</a>
+        </div>
+
+        <div class="jumbotron text-center col-md-6">
+
+            <h1>
+                <i class="fas fa-utensils"></i> Food!</h1>
+            <p>how u feelin dude</p>
+
+            <p> Input Food</p>
+            <input id="food-input" type="text" />
+            <button id="submit" class="btn btn-secondary">Submit Food</button>
+
+            <br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
+                    <i class="em em-laughing"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
+                    <i class="em em-heart_eyes"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-alien"></i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-cry"></i>
+                    </i>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                    <i class="em em-ghost"></i>
+                    </i>
+                </label>
+            </div>
+            <div id="food-results"></div>
+
+            <a class="btn btn-success" role="button">Next</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; Made by the Bingers
+    </footer>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+
 </body>
 
 </html>

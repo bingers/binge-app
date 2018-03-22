@@ -1,0 +1,33 @@
+.container{
+    display: flex;  
+ }
+ 
+ .jumbotron {
+     background-size: cover;
+     color: white;
+     background-color: #696969;
+     border-style: solid;
+    border-width: 1px;
+    border-color: white;
+ }
+ body {
+     background-color: black;
+ }
+ 
+ footer {
+  clear: both;
+  color: white;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  margin: 0;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+ }
+ 
+ #age {
+     text-align: center;
+     color: white;
+ }
