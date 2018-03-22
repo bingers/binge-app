@@ -58,46 +58,45 @@
                     <div class="btn-group mr-2 mx-auto">
                             <label class="btn btn-secondary">
                                 <input type="radio" value="28" id="option1" autocomplete="off" class="emoji">
-                                Action
+                                <i class="em em-sunglasses"></i>
                             </label>
                             <label class="btn btn-secondary">
                                 <input type="radio" value="10749" id="option2" autocomplete="off" class="emoji">
-                                Romance                    
+                                <i class="em em-heart_eyes"></i>                   
                             </label>
                             <label class="btn btn-secondary">
                                 <input type="radio" value="878" id="option3" autocomplete="off" class="emoji">
-                                Sci Fi
-                        
+                                <i class="em em-alien"></i>                     
                             </label>
                             <label class="btn btn-secondary">
                                 <input type="radio" value="99" id="option4" autocomplete="off" class="emoji">
-                                Documentary
+                                <i class="em em-book"></i>
                             </label>
                     </div>
 
                     <div class="btn-group mr-2 mx-auto">
                         <label class="btn btn-secondary">
                             <input type="radio" value="35" id="option5" autocomplete="off" class="emoji">
-                            Comedy
+                            <i class="em em-laughing"></i>
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="27" id="option6" autocomplete="off" class="emoji">
-                            Horror
+                            <i class="em em-ghost"></i>
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="18" id="option7" autocomplete="off" class="emoji">
-                            Drama                    
+                            <i class="em em-cry"></i>                    
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="16" id="option8" autocomplete="off" class="emoji">
-                            Animation      
+                            <i class="em em-sauropod"></i>      
                         </label>
                     </div>
                 </div>
 
             </p>
 
-            <a class="btn btn-danger pull-right" href="{% url 'awesome_info' %}">Next</a>
+            <button class="btn btn-danger pull-right">Next</button>
 
         </div>
 
@@ -112,33 +111,66 @@
             <button id="submit" class="btn btn-secondary">Submit Food</button>
 
             <br>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="btn-toolbar btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group mr-2 mx-auto">
                 <label class="btn btn-secondary active">
                     <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
-                    <i class="em em-laughing"></i>
+                    <i class="em em-flag-mx"></i>
                 </label>
                 <label class="btn btn-secondary">
                     <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
-                    <i class="em em-heart_eyes"></i>
+                    <i class="em em-us"></i>
                 </label>
                 <label class="btn btn-secondary">
                     <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-alien"></i>
+                    <i class="em em-it"></i>
                 </label>
                 <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-cry"></i>
+                    <input type="radio" name="options" id="option4" autocomplete="off" class="emoji">
+                    <i class="em em-jp"></i>
                     </i>
                 </label>
                 <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-ghost"></i>
+                    <input type="radio" name="options" id="option5" autocomplete="off" class="emoji">
+                    <i class="em em-cn"></i>
                     </i>
                 </label>
+
+                </div>
+                
+
+                <div class="btn-group mr-2 mx-auto">
+                 <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option6" autocomplete="off" class="emoji">
+                    <i class="em em-green_salad"></i>
+                    </i>
+                </label>
+                 <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option7" autocomplete="off" class="emoji">
+                    <i class="em em-bacon"></i>
+                    </i>
+                </label>
+                 <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option8" autocomplete="off" class="emoji">
+                    <i class="em em-cake"></i>
+                    </i>
+                </label>
+                 <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option9" autocomplete="off" class="emoji">
+                    <i class="em em-cheese_wedge"></i>
+                    </i>
+                </label>
+                 <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option10" autocomplete="off" class="emoji">
+                    <i class="em em-pancakes"></i>
+                    </i>
+                </label>
+                </div>
+
             </div>
             <div id="food-results"></div>
 
-            <a class="btn btn-success" href="{% url 'rad_info' %}" role="button">Next</a>
+            <button class="btn btn-success" role="button">Next</button>
         </div>
 
     </div>
