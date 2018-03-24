@@ -6,6 +6,24 @@ $("#food-last").hide();
 $("#food-next").hide();
 $("#movie-last").hide();
 $("#movie-next").hide();
+$(".theApp").hide();
+
+$("#ageBtn").on("click", function(){
+
+var age = $("#ageinput").val();
+console.log(age);
+
+ if (age < 13) {
+$("#age").text("Sorry Dude, you're too young to Binge");
+} else {
+    $("#age").hide();
+    $(".theApp").show();
+}
+
+});
+
+
+
 
 
 $('.emoji').on('click', function () {
