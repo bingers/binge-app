@@ -42,4 +42,21 @@
   margin: 0;
   bottom: 0px;
   width: 100%;
+
  }
+ 
+ #age {
+     text-align: center;
+     color: white;
+ }
+
+ #FinalSubmit{
+     margin-bottom: 20px;
+     width: 150px;
+ }
+
+ .image{
+    height: 200px;
+    width: 200px;
+ }
+
