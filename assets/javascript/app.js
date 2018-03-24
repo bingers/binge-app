@@ -15,13 +15,11 @@ $('.emoji').on('click', function () {
 
 $("#FinalSubmit").on("click", function (event) {
     event.preventDefault();
+    $("#FinalSubmit").hide();
 
     var activeFoodObject = $("#food-emojis").find(".active");
     var foodValue = activeFoodObject.children("input").val();
     console.log(foodValue);
-
-    // var foodSearch = activeFood;
-    // console.log(foodSearch);
 
     'use strict';
     var genreId = $("#movie-emojis").find(".active").children("input").val();
