@@ -1,15 +1,20 @@
+
 var foodData;
 var i=0;
 $("#food-last").hide();
 $("#food-next").hide();
 
+
   $('.emoji').on('click', function () {
       $(this).button('toggle')
-  })
+  });
 
 
 
-  $("#FinalSubmit").on("click", function() {
+
+$("#FinalSubmit").on("click", function (event){
+      event.preventDefault();
+
       var foodSearch = $("#food-input").val().trim();
 
       var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
@@ -62,6 +67,7 @@ $("#food-next").hide();
           $("#food-results").append(a, b, c, d);
       });
 
+
       $("#food-last").on("click", function() {
         i--;
         $("#food-next").show();
@@ -84,6 +90,7 @@ $("#food-next").hide();
   
             $("#food-results").append(a, b, c, d);
         });
+
 
   // callback for successful getConfiguration call
   function configSuccessCallback(data) {
