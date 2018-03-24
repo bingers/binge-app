@@ -53,7 +53,11 @@
 
             <p>Choose an emoji!</p>
         
-                <div class="btn-toolbar btn-group-toggle" role="toolbar" data-toggle="buttons">
+
+                <div class="btn-toolbar btn-group-toggle" id="movie-emojis" data-toggle="buttons">
+
+
+
                     <div class="btn-group mr-2 mx-auto">
                         <label class="btn btn-secondary">
                             <input type="radio" value="28" id="option1" autocomplete="off" class="emoji">
@@ -96,7 +100,11 @@
             
             <div id="movie-results"></div>
 
-            <button class="btn btn-danger" role="button">Next</button>
+
+            <button class="btn btn-danger" id="movie-last" role="button">Last</button>
+            <button class="btn btn-danger" id="movie-next" role="button">Next</button>
+
+
 
         </div>
 
@@ -114,7 +122,9 @@
 
             <p>How u feelin dude?</p>
         
-            <div class="btn-toolbar btn-group-toggle" data-toggle="buttons">
+
+            <div class="btn-toolbar btn-group-toggle" id="food-emojis" data-toggle="buttons">
+
                 <div class="btn-group mr-2 mx-auto">
                     <label class="btn btn-secondary active">
                         <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
@@ -172,10 +182,14 @@
             
             <div id="food-results"></div>
 
-            <button class="btn btn-success" role="button">Next</button>
+
+            <button class="btn btn-success" id="food-last" role="button">Last</button>
+            <button class="btn btn-success" id="food-next" role="button">Next</button>
         </div>
 
-        <button type="button" class="btn btn-primary" id="FinalSubmit">Submit</button>
+        <button type="button" class="btn btn-primary mx-auto" id="FinalSubmit">Submit</button>
+
+
 
     </div>
 
