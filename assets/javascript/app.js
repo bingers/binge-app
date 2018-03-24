@@ -6,10 +6,7 @@
 $("#FinalSubmit").on("click", function (event){
       event.preventDefault();
       var foodSearch = $("#food-input").val().trim();
-
-      // var foodSearch = "bacon";
       var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
-      //var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=dessert&sort=r&count=5";
 
       $.ajax({
           url: queryURL,
@@ -21,18 +18,19 @@ $("#FinalSubmit").on("click", function (event){
           console.log("count: " + recipeCount);
           var i = 0;
 
-          var a = $("<div>");
-          a.text(data.recipes[i].title);
-          var b = $("<div>");
-          var bImg = $("<img>");
-          bImg.attr("src", data.recipes[i].image_url);
-          b.append(bImg);
-          var c = $("<div>");
-          c.text(data.recipes[i].source_url);
-          var d = $("<div>");
-          d.text(data.recipes[i].social_rank);
+          var foodTitle = $("<div>");
+          foodTitle.text(data.recipes[i].title);
+          var foodImgDiv = $("<div>");
+          var foodImg = $("<img>");
+          foodImg.attr("src", data.recipes[i].image_url);
+          foodImgDiv.append(foodImg);
+          var foodLinkDiv = $("<div>");
+          var foodLink = $("<a target='_blank' href='" + data.recipes[i].source_url + "'>Go to the recipe!</a>");
+          foodLinkDiv.append(foodLink);
+          var foodRating = $("<div>");
+          foodRating.text(data.recipes[i].social_rank);
 
-          $("#food-results").append(a, b, c, d);
+          $("#food-results").append(foodTitle, foodImgDiv, foodLinkDiv, foodRating);
       });
 
 });
