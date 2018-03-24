@@ -26,7 +26,7 @@ $("#food-next").hide();
           var a = $("<div>");
           a.text(foodData.recipes[i].title);
           var b = $("<div>");
-          var bImg = $("<img>");
+          var bImg = $("<img class='image'>");
           bImg.attr("src", foodData.recipes[i].image_url);
           b.append(bImg);
           var c = $("<div>");
@@ -51,7 +51,7 @@ $("#food-next").hide();
           var a = $("<div>");
           a.text(foodData.recipes[i].title);
           var b = $("<div>");
-          var bImg = $("<img>");
+          var bImg = $("<img class='image'>");
           bImg.attr("src", foodData.recipes[i].image_url);
           b.append(bImg);
           var c = $("<div>");
@@ -64,15 +64,17 @@ $("#food-next").hide();
 
       $("#food-last").on("click", function() {
         i--;
+        $("#food-next").show();
         if(i===0){
             $("#food-last").hide();
         }
+        
         
         $("#food-results").empty();
             var a = $("<div>");
             a.text(foodData.recipes[i].title);
             var b = $("<div>");
-            var bImg = $("<img>");
+            var bImg = $("<img class='image'>");
             bImg.attr("src", foodData.recipes[i].image_url);
             b.append(bImg);
             var c = $("<div>");
