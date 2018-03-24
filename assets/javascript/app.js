@@ -5,8 +5,13 @@ $("#food-last").hide();
 $("#food-next").hide();
 
 
+  $('.emoji').tooltip('toggleEnabled');
+
 $('.emoji').on('click', function () {
     $(this).button('toggle');
+    var clickedFoodEmoji = $("#food-emojis").find(".active");
+    console.log(clickedFoodEmoji.children("input").val() );
+
 });
 
 

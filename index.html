@@ -6,14 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Binge</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
     <script src="themoviedb.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
         crossorigin="anonymous"></script>
 
@@ -123,19 +124,19 @@
 
                 <div class="btn-group mr-2 mx-auto">
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option1" autocomplete="off" class="emoji" value="mexican">
+                        <input type="radio" name="options" id="option1" autocomplete="off" class="emoji" value="mexican" data-toggle="tooltip" data-placement="top" title="Mexican">
                         <i class="em em-flag-mx"></i>
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option2" autocomplete="off" class="emoji" value="american">
+                        <input type="radio" name="options" id="option2" autocomplete="off" class="emoji" value="american" data-toggle="tooltip" data-placement="top" title="American">
                         <i class="em em-us"></i>
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji" value="italian">
+                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji" value="italian" data-toggle="tooltip" data-placement="top" title="Italian">
                         <i class="em em-it"></i>
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option4" autocomplete="off" class="emoji" value="japanese">
+                        <input type="radio" name="options" id="option4" autocomplete="off" class="emoji" value="japanese" data-toggle="tooltip" data-placement="top" title="Japanese">
                         <i class="em em-jp"></i>
                        
                     </label>
@@ -176,7 +177,7 @@
                 </div>
             </div>
             
-            
+            <div id="cuisine"></div>
             <div id="food-results"></div>
 
 
