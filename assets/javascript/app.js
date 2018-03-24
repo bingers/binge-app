@@ -1,8 +1,12 @@
 
 var foodData;
 var i=0;
+var j=0;
+var movieData;
 $("#food-last").hide();
 $("#food-next").hide();
+$("#movie-last").hide();
+$("#movie-next").hide();
 
 
   $('.emoji').on('click', function () {
@@ -15,7 +19,22 @@ $("#food-next").hide();
 $("#FinalSubmit").on("click", function (event){
       event.preventDefault();
 
-      var foodSearch = $("#food-input").val().trim();
+      'use strict';
+      var genreId = $("#movie-emojis").find(".active").children("input").val();
+      console.log("Genre ID: "+genreId)
+      var searchTerm = $('#movieNameInput').val(),
+          options = {
+              "id": genreId
+          };
+
+      theMovieDb.genres.getMovies(options, successCallback, errorCallback);
+      console.log(JSON.stringify(movieData));
+      
+
+      $("#movie-next").show();
+      
+
+      var foodSearch = $("#food-emojis").find(".active").children("input").val();
 
       var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
 
@@ -98,18 +117,14 @@ $("#FinalSubmit").on("click", function (event){
       // Set the base image url to the returned base_url value plus w185, shows posters with a width of 185 pixels.
       // Store it in localStorage so we don't make the configuration call every time.
       localStorage.setItem('tmdbImageUrlBase', JSON.parse(data).images.base_url + 'w185');
-      $('#results').text('tmdbImageUrlBase downloaded from themoviedb.org: ' + localStorage.getItem(
-          'tmdbImageUrlBase'));
   }
   // callback for getConfiguration call error
   function configErrorCallback(data) {
       'use strict';
-      $('#results').text('Error getting TMDb configuration! ' + JSON.parse(data).status_message);
+      $('#movie-results').text('Error getting TMDb configuration! ' + JSON.parse(data).status_message);
   }
   // check localStorage for imageBaseUrl, download from TMDb if not found
   if (localStorage.getItem('tmdbImageUrlBase')) {
-      $('#results').text('tmdbImageUrlBase retrieved from localstorage: ' + localStorage.getItem(
-          'tmdbImageUrlBase'));
   } else {
       theMovieDb.configurations.getConfiguration(configSuccessCallback, configErrorCallback);
   }
@@ -117,17 +132,18 @@ $("#FinalSubmit").on("click", function (event){
   // callback for successful movie search
   function successCallback(data) {
       'use strict';
-      $('#results').text('');
-      data = JSON.parse(data);
-      //console.log(data);
+      $('#movie-results').text('');
+      movieData = JSON.parse(data);
+      console.log(data);
+      console.log("Number of Returned Search Queries: "+movieData.results.length)
       // we just take the first result and display it
-      if (data.results && data.results.length > 0) {
-          var imageUrl = localStorage.getItem('tmdbImageUrlBase') + data.results[0].poster_path;
-          $('#results').append('Title: <b>' + data.results[0].title + '</b><br />');
-          $('#results').append('Movie Id: ' + data.results[0].id + '<br />');
-          $('#results').append('<img src="' + imageUrl + '" />');
+      if (movieData.results && movieData.results.length > 0) {
+          var imageUrl = localStorage.getItem('tmdbImageUrlBase') + movieData.results[j].poster_path;
+          $('#movie-results').append('Title: <b>' + movieData.results[j].title + '</b><br />');
+          $('#movie-results').append('Release Date: ' + movieData.results[j].release_date + '<br />');
+          $('#movie-results').append('<img src="' + imageUrl + '" />');
       } else {
-          $('#results').text('Nothing found');
+          $('#movie-results').text('Nothing found');
           console.log('Nothing found');
       }
   }
@@ -135,20 +151,35 @@ $("#FinalSubmit").on("click", function (event){
   function errorCallback(data) {
       'use strict';
       //console.log('error: \n' + data);
-      $('#results').text('Error searching. ' + JSON.parse(data).status_message);
-  }
+      $('#movie-results').text('Error searching. ' + JSON.parse(data).status_message);
+  };
 
-  // search button click event handler
-  $('#searchButton').click(function () {
-      'use strict';
-      var searchTerm = $('#movieNameInput').val(),
-          searchYear = $('#movieYearInput').val(),
-          options = {
-              "query": searchTerm
-          };
-      //options.query = searchTerm;
-      if (!isNaN(searchYear)) {
-          options.year = searchYear;
+  $("#movie-next").on("click", function(){
+    j++;
+    if(j>0){
+      $("#movie-last").show()
+      };
+      if (j === movieData.results.length - 1){
+          $("#movie-next").hide();
       }
-      theMovieDb.search.getMovie(options, successCallback, errorCallback);
+    $("#movie-results").empty();         
+    var imageUrl = localStorage.getItem('tmdbImageUrlBase') + movieData.results[j].poster_path;
+    $('#movie-results').append('Title: <b>' + movieData.results[j].title + '</b><br />');
+    $('#movie-results').append('Release Date: ' + movieData.results[j].release_date + '<br />');
+    $('#movie-results').append('<img src="' + imageUrl + '" />');
   });
+
+  $("#movie-last").on("click", function() {
+    j--;
+    $("#movie-next").show();
+    if(j===0){
+        $("#movie-last").hide();
+    }
+    
+    
+    $("#movie-results").empty();
+    var imageUrl = localStorage.getItem('tmdbImageUrlBase') + movieData.results[j].poster_path;
+    $('#movie-results').append('Title: <b>' + movieData.results[j].title + '</b><br />');
+    $('#movie-results').append('Release Date: ' + movieData.results[j].release_date + '<br />');
+    $('#movie-results').append('<img src="' + imageUrl + '" />');
+    });

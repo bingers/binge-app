@@ -60,3 +60,15 @@
     width: 200px;
  }
 
+ .btn-toolbar{
+     padding: 0px;
+     margin: 0px;
+ }
+
+ #movie-results{
+     margin-bottom: 20px;
+ }
+
+ #food-results{
+     margin-bottom: 20px;
+ }
