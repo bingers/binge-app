@@ -18,10 +18,6 @@ $("#FinalSubmit").on("click", function (event) {
     $("#FinalSubmit").hide();
     $(".hideThis").hide();
 
-    var activeFoodObject = $("#food-emojis").find(".active");
-    var foodValue = activeFoodObject.children("input").val();
-    console.log(foodValue);
-
     'use strict';
     var genreId = $("#movie-emojis").find(".active").children("input").val();
     console.log("Genre ID: " + genreId)
@@ -32,13 +28,10 @@ $("#FinalSubmit").on("click", function (event) {
 
     theMovieDb.genres.getMovies(options, successCallback, errorCallback);
     console.log(JSON.stringify(movieData));
-
-
     $("#movie-next").show();
 
 
     var foodSearch = $("#food-emojis").find(".active").children("input").val();
-    var foodSearch = foodValue;
     var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
 
     $.ajax({
@@ -155,8 +148,7 @@ function configErrorCallback(data) {
     $('#movie-results').text('Error getting TMDb configuration! ' + JSON.parse(data).status_message);
 }
 // check localStorage for imageBaseUrl, download from TMDb if not found
-if (localStorage.getItem('tmdbImageUrlBase')) {
-} else {
+if (localStorage.getItem('tmdbImageUrlBase')) {} else {
     theMovieDb.configurations.getConfiguration(configSuccessCallback, configErrorCallback);
 }
 
