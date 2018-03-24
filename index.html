@@ -10,40 +10,6 @@
         crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-  
-
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyATqoaVNAv5dim_qlP4AAgVe3CMGZLNF9Y",
-      authDomain: "binge-web-app.firebaseapp.com",
-      databaseURL: "https://binge-web-app.firebaseio.com",
-      projectId: "binge-web-app",
-      storageBucket: "",
-      messagingSenderId: "979328161042"
-    };
-    firebase.initializeApp(config);
-    </script>   
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
-    <script type="text/javascript">
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        ],
-        // Terms of service url.
-        tosUrl: '<your-tos-url>'
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
 
     <script src="themoviedb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -74,7 +40,6 @@
     <div class="row">
 
         <div class="jumbotron text-center col-md-6">
-            <div class="first"></div>
             <h1>
                 <i class="fas fa-film"></i> Movie!</h1>
             <p>
@@ -86,102 +51,140 @@
             </p>
             <p id="results"></p>
 
-            <p>Choose an emoji!
-                <br>
-                <div class="btn-toolbar btn-group-toggle" role="toolbar"  data-toggle="buttons">
+            <p>Choose an emoji!</p>
+        
+                <div class="btn-toolbar btn-group-toggle" role="toolbar" data-toggle="buttons">
                     <div class="btn-group mr-2 mx-auto">
-                            <label class="btn btn-secondary">
-                                <input type="radio" value="28" id="option1" autocomplete="off" class="emoji">
-                                Action
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" value="10749" id="option2" autocomplete="off" class="emoji">
-                                Romance                    
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" value="878" id="option3" autocomplete="off" class="emoji">
-                                Sci Fi
-                        
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" value="99" id="option4" autocomplete="off" class="emoji">
-                                Documentary
-                            </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="28" id="option1" autocomplete="off" class="emoji">
+                            <i class="em em-sunglasses"></i>
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="10749" id="option2" autocomplete="off" class="emoji">
+                            <i class="em em-heart_eyes"></i>
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="878" id="option3" autocomplete="off" class="emoji">
+                            <i class="em em-alien"></i>
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" value="99" id="option4" autocomplete="off" class="emoji">
+                            <i class="em em-book"></i>
+                        </label>
                     </div>
 
                     <div class="btn-group mr-2 mx-auto">
                         <label class="btn btn-secondary">
                             <input type="radio" value="35" id="option5" autocomplete="off" class="emoji">
-                            Comedy
+                            <i class="em em-laughing"></i>
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="27" id="option6" autocomplete="off" class="emoji">
-                            Horror
+                            <i class="em em-ghost"></i>
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="18" id="option7" autocomplete="off" class="emoji">
-                            Drama                    
+                            <i class="em em-cry"></i>
                         </label>
                         <label class="btn btn-secondary">
                             <input type="radio" value="16" id="option8" autocomplete="off" class="emoji">
-                            Animation      
+                            <i class="em em-sauropod"></i>
                         </label>
                     </div>
                 </div>
 
+            
+            <div id="movie-results"></div>
 
-            </p>
+            <button class="btn btn-danger" role="button">Next</button>
 
-            <a class="btn btn-danger pull-right">Next</a>
         </div>
 
         <div class="jumbotron text-center col-md-6">
 
             <h1>
-                <i class="fas fa-utensils"></i> Food!</h1>
-            <p>how u feelin dude</p>
+                <i class="fas fa-utensils"></i> Food!
+            </h1>
+
+            
 
             <p> Input Food</p>
             <input id="food-input" type="text" />
             <button id="submit" class="btn btn-secondary">Submit Food</button>
 
-            <br>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
-                    <i class="em em-laughing"></i>
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
-                    <i class="em em-heart_eyes"></i>
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-alien"></i>
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-cry"></i>
-                    </i>
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
-                    <i class="em em-ghost"></i>
-                    </i>
-                </label>
+            <p>How u feelin dude?</p>
+        
+            <div class="btn-toolbar btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group mr-2 mx-auto">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="options" id="option1" autocomplete="off" class="emoji">
+                        <i class="em em-flag-mx"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option2" autocomplete="off" class="emoji">
+                        <i class="em em-us"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option3" autocomplete="off" class="emoji">
+                        <i class="em em-it"></i>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option4" autocomplete="off" class="emoji">
+                        <i class="em em-jp"></i>
+                       
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option5" autocomplete="off" class="emoji">
+                        <i class="em em-cn"></i>
+                        
+                    </label>
+
+                </div>
+
+
+                <div class="btn-group mr-2 mx-auto">
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option6" autocomplete="off" class="emoji">
+                        <i class="em em-green_salad"></i>
+                        
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option7" autocomplete="off" class="emoji">
+                        <i class="em em-bacon"></i>
+                        
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option8" autocomplete="off" class="emoji">
+                        <i class="em em-cake"></i>
+                        
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option9" autocomplete="off" class="emoji">
+                        <i class="em em-cheese_wedge"></i>
+                        
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option10" autocomplete="off" class="emoji">
+                        <i class="em em-pancakes"></i>    
+                    </label>
+                </div>
             </div>
+            
             <div id="food-results"></div>
 
-            <a class="btn btn-success" role="button">Next</a>
+            <button class="btn btn-success" role="button">Next</button>
         </div>
+
+        <button type="button" class="btn btn-primary" id="FinalSubmit">Submit</button>
 
     </div>
 
+
     <footer>
         &copy; Made by the Bingers
-    </footer>    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
+    </footer>
+
+
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
