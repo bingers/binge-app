@@ -6,7 +6,21 @@ $("#food-last").hide();
 $("#food-next").hide();
 $("#movie-last").hide();
 $("#movie-next").hide();
+$(".theApp").hide();
 
+$("#ageBtn").on("click", function(event){
+    event.preventDefault();
+    var age = $("#ageInput").val();
+    console.log("Age: "+age);
+    if( age >= 13){
+        $(".theApp").show();
+        $("#age").hide();
+    }
+    else{
+        $("#age").text("Sorry bro, you are too young for this App.")
+    }
+
+})
 
 $('.emoji').on('click', function () {
     $(this).button('toggle');
@@ -15,13 +29,9 @@ $('.emoji').on('click', function () {
 
 $("#FinalSubmit").on("click", function (event) {
     event.preventDefault();
+    $("#FinalSubmit").hide();
+    $("#movie-emojis").hide();
 
-    var activeFoodObject = $("#food-emojis").find(".active");
-    var foodValue = activeFoodObject.children("input").val();
-    console.log(foodValue);
-
-    // var foodSearch = activeFood;
-    // console.log(foodSearch);
 
     'use strict';
     var genreId = $("#movie-emojis").find(".active").children("input").val();
@@ -39,8 +49,7 @@ $("#FinalSubmit").on("click", function (event) {
 
 
     var foodSearch = $("#food-emojis").find(".active").children("input").val();
-    //var foodSearch = $("#food-input").val().trim();
-    var foodSearch = foodValue;
+
     var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
 
     $.ajax({
