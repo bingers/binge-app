@@ -2,8 +2,8 @@ var theMovieDb = {};
 
 theMovieDb.common = {
   api_key: "e5b06f17d05f6cfa0548dce0843cbde4",
-  base_uri: "https://api.themoviedb.org/3/",
-  images_uri: "https://image.tmdb.org/t/p/",
+  base_uri: "http://api.themoviedb.org/3/",
+  images_uri: "http://image.tmdb.org/t/p/",
   timeout: 5000,
   generateQuery: function (options) {
     'use strict';
@@ -59,7 +59,7 @@ theMovieDb.common = {
 
     method = options.method || "GET";
     status = options.status || 200;
-    xhr = new XMLhttpsRequest();
+    xhr = new XMLhttpRequest();
 
     xhr.ontimeout = function () {
       error('{"status_code":408,"status_message":"Request timed out"}');
@@ -262,7 +262,7 @@ theMovieDb.authentication = {
   askPermissions: function (options) {
     'use strict';
 
-    window.open("https://www.themoviedb.org/authenticate/" + options.token + "?redirect_to=" + options.redirect_to);
+    window.open("http://www.themoviedb.org/authenticate/" + options.token + "?redirect_to=" + options.redirect_to);
 
   },
   validateUser: function (options, success, error) {
