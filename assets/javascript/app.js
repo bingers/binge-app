@@ -39,7 +39,7 @@ $("#FinalSubmit").on("click", function (event) {
 
     var foodSearch = $("#food-emojis").find(".active").children("input").val();
     var foodSearch = foodValue;
-    var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
+    var queryURL = "https://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
 
     $.ajax({
         url: queryURL,
