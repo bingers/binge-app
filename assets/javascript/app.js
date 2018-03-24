@@ -16,6 +16,7 @@ $('.emoji').on('click', function () {
 $("#FinalSubmit").on("click", function (event) {
     event.preventDefault();
     $("#FinalSubmit").hide();
+    $(".hideThis").hide();
 
     var activeFoodObject = $("#food-emojis").find(".active");
     var foodValue = activeFoodObject.children("input").val();
