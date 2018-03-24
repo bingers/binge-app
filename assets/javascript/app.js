@@ -1,15 +1,7 @@
-  // Initialize Firebase
-  var config = {
-      apiKey: "AIzaSyATqoaVNAv5dim_qlP4AAgVe3CMGZLNF9Y",
-      authDomain: "binge-web-app.firebaseapp.com",
-      databaseURL: "https://binge-web-app.firebaseio.com",
-      projectId: "binge-web-app",
-      storageBucket: "",
-      messagingSenderId: "979328161042"
-  };
-  firebase.initializeApp(config);
-
-  var database = firebase.database();
+var foodData;
+var i=0;
+$("#food-last").hide();
+$("#food-next").hide();
 
   $('.emoji').on('click', function () {
       $(this).button('toggle')
@@ -17,40 +9,79 @@
 
 
 
-
-  $("#submit").on("click", function (event) {
-      event.preventDefault();
+  $("#FinalSubmit").on("click", function() {
       var foodSearch = $("#food-input").val().trim();
 
-      // var foodSearch = "bacon";
       var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=" + foodSearch + "&sort=r&count=5";
-      //var queryURL = "http://food2fork.com/api/search?key=96b3276309152fafb143690a0f191fa1&q=dessert&sort=r&count=5";
 
       $.ajax({
           url: queryURL,
           method: "GET"
       }).then(function (response) {
           $("#food-results").empty();
-          var data = JSON.parse(response);
-          var recipeCount = data.count;
+          foodData = JSON.parse(response);
+          var recipeCount = foodData.count;
           console.log("count: " + recipeCount);
-          var i = 0;
-
+         
           var a = $("<div>");
-          a.text(data.recipes[i].title);
+          a.text(foodData.recipes[i].title);
           var b = $("<div>");
           var bImg = $("<img>");
-          bImg.attr("src", data.recipes[i].image_url);
+          bImg.attr("src", foodData.recipes[i].image_url);
           b.append(bImg);
           var c = $("<div>");
-          c.text(data.recipes[i].source_url);
+          c.text(foodData.recipes[i].source_url);
           var d = $("<div>");
-          d.text(data.recipes[i].social_rank);
+          d.text(foodData.recipes[i].social_rank);
+
+          $("#food-results").append(a, b, c, d);
+      });
+      $("#food-next").show();
+  });
+
+  $("#food-next").on("click", function() {
+      i++;
+      if(i>0){
+        $("#food-last").show()
+        };
+        if (i===4){
+            $("#food-next").hide();
+        }
+      $("#food-results").empty();         
+          var a = $("<div>");
+          a.text(foodData.recipes[i].title);
+          var b = $("<div>");
+          var bImg = $("<img>");
+          bImg.attr("src", foodData.recipes[i].image_url);
+          b.append(bImg);
+          var c = $("<div>");
+          c.text(foodData.recipes[i].source_url);
+          var d = $("<div>");
+          d.text(foodData.recipes[i].social_rank);
 
           $("#food-results").append(a, b, c, d);
       });
 
-  });
+      $("#food-last").on("click", function() {
+        i--;
+        if(i===0){
+            $("#food-last").hide();
+        }
+        
+        $("#food-results").empty();
+            var a = $("<div>");
+            a.text(foodData.recipes[i].title);
+            var b = $("<div>");
+            var bImg = $("<img>");
+            bImg.attr("src", foodData.recipes[i].image_url);
+            b.append(bImg);
+            var c = $("<div>");
+            c.text(foodData.recipes[i].source_url);
+            var d = $("<div>");
+            d.text(foodData.recipes[i].social_rank);
+  
+            $("#food-results").append(a, b, c, d);
+        });
 
   // callback for successful getConfiguration call
   function configSuccessCallback(data) {
