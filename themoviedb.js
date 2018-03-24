@@ -59,7 +59,7 @@ theMovieDb.common = {
 
     method = options.method || "GET";
     status = options.status || 200;
-    xhr = new XMLhttpRequest();
+    xhr = new XMLHttpRequest();
 
     xhr.ontimeout = function () {
       error('{"status_code":408,"status_message":"Request timed out"}');
