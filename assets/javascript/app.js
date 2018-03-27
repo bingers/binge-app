@@ -8,17 +8,24 @@ $("#movie-last").hide();
 $("#movie-next").hide();
 $(".theApp").hide();
 
-$("#ageBtn").on("click", function(){
+$("#ageBtn").on("click", function () {
 
-var age = $("#ageinput").val();
-console.log(age);
+    var age = $("#ageinput").val().trim();
+    console.log("Age: " + age);
 
- if (age < 13) {
-$("#age").text("Sorry Dude, you're too young to Binge");
-} else {
-    $("#age").hide();
-    $(".theApp").show();
-}
+
+    if (age.length === 0 || age !== Number) {
+        $("#errorCheck").empty();
+        var check = $("<p>");
+        check.text("Unexpected result. Please enter Age.");
+        $("#errorCheck").append(check);
+
+    } else if (age < 13) {
+        $("#age").text("Sorry Dude, you're too young to Binge");
+    } else {
+        $("#age").hide();
+        $(".theApp").show();
+    }
 
 });
 
@@ -166,7 +173,7 @@ function configErrorCallback(data) {
     $('#movie-results').text('Error getting TMDb configuration! ' + JSON.parse(data).status_message);
 }
 // check localStorage for imageBaseUrl, download from TMDb if not found
-if (localStorage.getItem('tmdbImageUrlBase')) {} else {
+if (localStorage.getItem('tmdbImageUrlBase')) { } else {
     theMovieDb.configurations.getConfiguration(configSuccessCallback, configErrorCallback);
 }
 
