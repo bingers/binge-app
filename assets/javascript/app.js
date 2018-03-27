@@ -10,7 +10,7 @@ $(".theApp").hide();
 
 $("#ageBtn").on("click", function () {
 
-    var age = parseInt($("#ageinput").val().trim());
+    var age = $("#ageinput").val().trim();
     console.log("Age: " + age);
 
 
