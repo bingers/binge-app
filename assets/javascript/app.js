@@ -14,7 +14,7 @@ $("#ageBtn").on("click", function () {
     console.log("Age: " + age);
 
 
-    if (age.length === 0 || age !== Number) {
+    if (age.length === 0) {
         $("#errorCheck").empty();
         var check = $("<p>");
         check.text("Unexpected result. Please enter Age.");
